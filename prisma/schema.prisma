@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Rating {
+  id        String   @id @default(cuid())
+  rating    Int
+  feedback  String?
+  hashedKey String   @unique
+  createdAt DateTime @default(now())
+}
+model WallOfFame {
+  id     Int      @id @default(1)
+  images String[] // Postgres supports native array types for String[]
+}
