@@ -12,8 +12,6 @@ import {
   Bar
 } from "recharts"
 import { useState, useEffect } from "react"
-import WallImageUploader from "../component/imageUploader"
-
 export default function AdminPage() {
   const [key, setKey] = useState("")
   const [authorized, setAuthorized] = useState(false)

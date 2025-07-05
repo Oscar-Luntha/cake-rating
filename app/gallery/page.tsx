@@ -5,7 +5,6 @@ import Image from "next/image"
 import { PhotoProvider, PhotoView } from "react-photo-view"
 import 'react-photo-view/dist/react-photo-view.css';
 import Link from "next/link"
-import WallOfFameDisplay from "../component/walloffame";
 const cakeImages = Array.from({ length: 21 }, (_, i) => `/gallery/cake-${i + 1}.png`)
 
 // This will later be fetched from database — for now, mock it
