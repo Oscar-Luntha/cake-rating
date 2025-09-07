@@ -12,6 +12,7 @@ import {
   Bar
 } from "recharts"
 import { useState, useEffect } from "react"
+
 export default function AdminPage() {
   const [key, setKey] = useState("")
   const [authorized, setAuthorized] = useState(false)
@@ -34,7 +35,7 @@ export default function AdminPage() {
 
     const interval = setInterval(() => {
       loadData(key)
-    }, 5000) // fetch every 5 seconds
+    }, 5000) // auto-refresh every 5s
 
     return () => clearInterval(interval)
   }, [authorized, key])
@@ -74,6 +75,7 @@ export default function AdminPage() {
       <p className="text-gray-700 mb-2">🧁 Total Ratings: {data?.total}</p>
       <p className="text-gray-700 mb-4">⭐ Average Rating: {data?.average?.toFixed(2)}</p>
 
+      {/* Recent Feedback */}
       <div className="bg-white rounded-xl p-4 shadow-md max-w-2xl mb-8">
         <h2 className="text-xl font-bold text-pink-500 mb-2">Recent Feedback</h2>
         {data?.ratings?.length ? (
@@ -89,6 +91,7 @@ export default function AdminPage() {
         )}
       </div>
 
+      {/* Charts */}
       {data?.hourly && (
         <div className="bg-white p-4 rounded-xl shadow-md max-w-3xl mb-8">
           <h2 className="text-xl font-bold text-pink-500 mb-4">📊 Ratings Per Hour</h2>
@@ -116,11 +119,10 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* Wall of Fame Upload */}
+      {/* Wall of Fame Placeholder */}
       <div className="bg-white rounded-xl p-6 shadow-md max-w-2xl">
         <h2 className="text-xl font-bold text-pink-500 mb-4">🏆 Update Wall of Fame</h2>
         <p>Feature coming soon</p>
-        {/* <WallImageUploader /> */}
       </div>
     </div>
   )
