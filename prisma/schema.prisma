@@ -7,12 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Rating {
-  id        String   @id @default(cuid())
-  rating    Int
-  feedback  String?
-  createdAt DateTime @default(now())
+model Cake {
+  id          String   @id @default(cuid())
+  name        String
+  price       Float
+  imageUrl    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
+
 
 model WallOfFame {
   id     Int      @id @default(1)
