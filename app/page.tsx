@@ -1,6 +1,8 @@
 import "./styles/background.css"
 import { Smartphone, Cake, Truck } from "lucide-react"
 import WhatWeBake from "./component/whatwebake"
+import About from "./component/about"
+import ContactSection from "./component/contact"
 
 export default function HomePage() {
   return (
@@ -81,6 +83,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <About />
+      <ContactSection />
       {/* Footer */}
       <footer className="bg-pink-600 text-white py-6 text-center mt-auto">
         <p>© {new Date().getFullYear()} Rosebay Cakes – Homemade with Love</p>
