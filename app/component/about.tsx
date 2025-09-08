@@ -2,7 +2,8 @@ import Image from "next/image"
 
 export default function About() {
   return (
-    <section id="about" className="py-16 px-6 bg-pink-50">
+    <section id="about" className="py-8 px-6 bg-pink-50">
+         <h1 className="text-lg text-gray-600 w-full text-center italic mb-6">Meet the owner and get to know more about Rosebay cakes</h1>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         
         {/* Image */}
