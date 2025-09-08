@@ -3,8 +3,6 @@
 import { useState } from "react"
 import { GiCupcake } from "react-icons/gi"
 import ".././styles/background.css"
-
-import Header from ".././component/header"
 import { motion } from "framer-motion"
 
 export default function RatePage() {
@@ -40,7 +38,6 @@ export default function RatePage() {
   if (submitted) {
     return (
       <div className="min-h-screen bg-cupcake">
-        <Header />
         <div className="flex items-center justify-center h-full p-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +55,7 @@ export default function RatePage() {
 
   return (
     <div className="min-h-screen bg-cupcake flex flex-col">
-      <Header />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
