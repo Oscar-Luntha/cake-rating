@@ -1,65 +1,54 @@
 import Image from "next/image"
+import "../styles/background.css"
 
-const cakes = [
-  {
-    id: 1,
-    name: "Birthday Cake",
-    image: "/images/birthday.jpeg",
-    description: "Perfect centerpiece for birthdays, custom-made in your favorite flavor.",
-    price: "From $25",
-  },
-  {
-    id: 2,
-    name: "Cupcakes",
-    image: "/images/cupies.png",
-    description: "Box of 6 or 12. Soft, fluffy, and decorated for any occasion.",
-    price: "From $10",
-  },
-  {
-    id: 3,
-    name: "Bento Cake",
-    image: "/images/bento.jpeg",
-    description: "Trendy Korean-style mini cakes, beautifully decorated.",
-    price: "From $15",
-  },
-  {
-    id: 4,
-    name: "Wedding Cake",
-    image: "/images/wedding.jpeg",
-    description: "Elegant tiered cakes for weddings. Fully customizable.",
-    price: "From $100",
-  },
-]
+async function getCakes() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ""}/api/cakes`, {
+    cache: "no-store",
+  })
+  if (!res.ok) throw new Error("Failed to fetch cakes")
+  return res.json()
+}
 
-export default function CatalogPage() {
+export default async function CatalogPage() {
+  const cakes = await getCakes()
+
   return (
-    <section className="py-12 px-6 bg-white">
-      <h2 className="text-3xl font-bold text-center text-pink-600 mb-8">
-        Our Catalog
-      </h2>
+    <main className="min-h-screen bg-amber-500 py-10 px-4 flex items-center justify-center">
+      <div className="max-w-6xl w-full bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl rounded-3xl p-8">
+        <h1 className="text-4xl font-bold text-white text-center mb-10 drop-shadow-sm">
+           Our Cakes
+        </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {cakes.map((cake) => (
-          <div
-            key={cake.id}
-            className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-lg transition"
-          >
-            <div className="relative h-56 w-full">
-              <Image
-                src={cake.image}
-                alt={cake.name}
-                fill
-                className="object-cover group-hover:scale-105 transition"
-              />
+        {/* Grid responsive layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {cakes.map((cake: any) => (
+            <div
+              key={cake.id}
+              className="flex items-center gap-4 p-4 rounded-2xl bg-white/30 backdrop-blur-md border border-white/40 shadow-lg hover:scale-105 transition-transform"
+            >
+              {/* Cake Image */}
+              <div className="w-[100px] h-[100px] relative flex-shrink-0">
+                <Image
+                  src={cake.imageUrl}
+                  alt={cake.name}
+                  fill
+                  className="object-cover rounded-xl shadow-md"
+                />
+              </div>
+
+              {/* Cake Info */}
+              <div className="flex-1">
+                <h2 className="text-lg font-semibold text-gray-900 drop-shadow-sm">
+                  {cake.name}
+                </h2>
+                <p className="text-pink-600 font-bold mt-1 drop-shadow-sm">
+                  {cake.price} MWK
+                </p>
+              </div>
             </div>
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-semibold text-pink-500">{cake.name}</h3>
-              <p className="text-gray-600 text-sm mb-2">{cake.description}</p>
-              <span className="text-gray-800 font-medium">{cake.price}</span>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </section>
+    </main>
   )
 }
