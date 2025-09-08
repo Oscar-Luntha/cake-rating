@@ -1,5 +1,5 @@
 'use client'
-
+import Link from "next/link"
 import {
   LineChart,
   Line,
@@ -71,7 +71,7 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen p-6 bg-gradient-to-br from-pink-50 to-yellow-50 w-full mx-auto">
       <h1 className="text-3xl font-bold text-pink-600 mb-4">Rosebay Admin Panel</h1>
-
+        <i>Feature to be implemented soon</i>
       <p className="text-gray-700 mb-2">🧁 Total Ratings: {data?.total}</p>
       <p className="text-gray-700 mb-4">⭐ Average Rating: {data?.average?.toFixed(2)}</p>
 
@@ -121,8 +121,7 @@ export default function AdminPage() {
 
       {/* Wall of Fame Placeholder */}
       <div className="bg-white rounded-xl p-6 shadow-md max-w-2xl">
-        <h2 className="text-xl font-bold text-pink-500 mb-4">🏆 Update Wall of Fame</h2>
-        <p>Feature coming soon</p>
+        <h2 className="text-xl font-bold text-pink-500 mb-4">🏆 <Link href="/admin/uploadCakes">UPload cake</Link></h2>
       </div>
     </div>
   )
