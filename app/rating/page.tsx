@@ -87,7 +87,7 @@ export default function RatePage() {
         </div>
       </motion.div>
       <footer className="text-center text-sm text-white mb-4">
-        Made with 💖 by Rosebay Cake Boutique
+        Made Rosebay Cake Boutique
       </footer>
     </div>
   )

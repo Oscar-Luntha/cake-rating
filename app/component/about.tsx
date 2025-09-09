@@ -9,7 +9,7 @@ export default function About() {
         {/* Image */}
         <div className="relative h-[800px] rounded-2xl overflow-hidden shadow-lg">
           <Image
-            src="/images/the-baker.jpeg" // replace with real photo
+            src="/images/the-owner.jpeg" // replace with real photo
             alt="Bakery owner"
             fill
             className=""

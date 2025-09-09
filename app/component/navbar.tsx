@@ -19,15 +19,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-xl border-b border-white/30 shadow-md">
       <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
-        {/* Logo / Brand */}
         <Link
           href="/"
           className="text-2xl font-bold text-pink-600 drop-shadow-sm"
         >
           Rosebay cakes
         </Link>
-
-        {/* Desktop Links */}
         <div className="hidden md:flex gap-6">
           {links.map((link) => (
             <Link
@@ -43,8 +40,6 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-
-        {/* Order Button (desktop) */}
         <div className="hidden md:block">
           <Link
             href="https://wa.me/+265884099667"
@@ -53,8 +48,6 @@ export default function Navbar() {
             Order now
           </Link>
         </div>
-
-        {/* Mobile Hamburger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-gray-800 hover:text-pink-600 transition"
@@ -62,8 +55,6 @@ export default function Navbar() {
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
-
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white/90 backdrop-blur-xl border-t border-white/30 shadow-md">
           <div className="flex flex-col items-center gap-4 py-4">

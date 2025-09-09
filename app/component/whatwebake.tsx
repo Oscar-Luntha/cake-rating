@@ -77,8 +77,6 @@ export default function WhatWeBake() {
             </div>
           </div>
         ))}
-
-        {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white rounded-full p-2"
@@ -91,8 +89,6 @@ export default function WhatWeBake() {
         >
           <ChevronRight className="h-6 w-6" />
         </button>
-
-        {/* Dots Indicator */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
           {cakes.map((_, index) => (
             <button
@@ -105,8 +101,6 @@ export default function WhatWeBake() {
           ))}
         </div>
       </div>
-
-      {/* CTA below slideshow */}
       <div className="mt-8 text-center">
         <a
           href="/catalog"
